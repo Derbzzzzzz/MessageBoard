@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1(class = "mb-5") New Message Form
+    form(method="POST", action='/new')
+        label 
+            h4 Username
+        div(class="input-group mb-3")
+            input(class="form-control" type = "text" name='user' maxLength = 20 required)
+        label
+            h4 Message
+        div(class="input-group mb-3")
+            input(class="form-control" type = "text" name='text' maxLength=100 required)
+        button(class="btn btn-primary" type="submit") Submit

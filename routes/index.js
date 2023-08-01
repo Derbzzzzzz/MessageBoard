@@ -16,7 +16,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Mini Messageboard' , messages: messages});
 });
+
+router.get('/new', function(req, res, next) {
+  res.render('form');
+})
+
+router.post('/new', function(req, res, next) {
+  let data = req.body
+  messages.push({text: data.text, user: data.user, added: new Date()})
+  res.redirect('/')
+})
 
 module.exports = router;

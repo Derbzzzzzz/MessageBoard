@@ -3,3 +3,11 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  div(class = 'messages')
+    each message in messages
+      div(class='card')
+        div(class = 'card-body')
+          h5(class = 'card-title') #{message.user}
+          div(class = 'card-text') #{message.text}
+  form(action='/new')
+    button(class = 'btn btn-primary create mt-3') Create Message
